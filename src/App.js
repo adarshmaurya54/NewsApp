@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { Component } from 'react'
+import News from './components/News';
+import logo from "./logo.jpg"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  
+  render() {
+    return (
+      <div className='bg-dark text-white'>
+        <div className="container">
+          <div className="head-text">
+            <h1>
+              <span>News App</span>
+              <img src={logo} alt="logo" className='logo' />
+            </h1>
+            <div className="container mt-5 d-flex align-items-center justify-content-center">
+              <div className="input shadow">
+                <input type="text" className=' px-3' placeholder='Enter keyword of news...' />
+                <button className='searchbtn'>Search <i className="bi bi-arrow-right-short"></i></button>
+              </div>
+            </div>
+            {/* Here the news */}
+            <div className="mt-5">
+              <News />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
-
-export default App;
