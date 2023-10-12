@@ -26,6 +26,7 @@ export class News extends Component {
                 // }
                 // let data = await response.json();
                 // this.setState({ article: data.articles })
+                // this.setState({ loading: false })
                 setTimeout(() => {
                     let articles = [
                         {
