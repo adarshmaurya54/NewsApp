@@ -13,25 +13,25 @@ export class Navbar extends Component {
                     <div className="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNav">
                         <ul className="navbar-nav mt-lg-0 mt-3">
                             <li className="nav-item">
-                                <NavLink className="nav-link  ms-lg-3" aria-current="page" to="/NewsApp/business">business</NavLink>
+                                <NavLink className="nav-link  ms-lg-3" aria-current="page" to="/business">business</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/entertainment">entertainment</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/entertainment">entertainment</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/general">general</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/general">general</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/health">health</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/health">health</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/science">science</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/science">science</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/sports">sports</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/sports">sports</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link ms-lg-3" to="/NewsApp/technology">technology</NavLink>
+                                <NavLink className="nav-link ms-lg-3" to="/technology">technology</NavLink>
                             </li>
                         </ul>
                     </div>
