@@ -7,7 +7,7 @@ export class NewsItem extends Component {
         return date;
     }
     render() {
-        const {title, description, imgurl, publishedAt, author,newsUrl} = this.props;
+        const {title, description, imgurl, publishedAt, author,newsUrl,content} = this.props;
         const formatPublishedAt = this.formatPublishedAt(publishedAt);
         return (
             <div className="card border-0 shadow mb-3 overflow-hidden">
@@ -19,6 +19,7 @@ export class NewsItem extends Component {
                         <div className="card-body">
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{description}</p>
+                            <p className="card-text">{content}</p>
                             <a className='btn btn-sm read' href={newsUrl}>Read more <i className="bi bi-arrow-right-short"></i></a>
                             <div className="card-text d-md-flex mt-2 justify-content-between">
                                 <div><small className="text-body-secondary">Author <strong>{author}</strong></small></div>

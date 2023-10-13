@@ -1,49 +1,28 @@
 
 import './App.css';
 import React, { Component } from 'react'
-import News from './components/News';
-import logo from "./logo.jpg"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchTerm: '', //initializing initial search term as blank
-      searchFlag: false
-    }
-  }
-  handleChange = (e) => {
-    this.setState({ searchTerm: e.target.value });
-    this.setState({ searchFlag: false });
-  }
-  handleSearch = () => {
-    if (this.state.searchTerm.trim() !== '')
-      this.setState({ searchFlag: true });
-  }
+  apiKey = process.env.REACT_APP_NEWS_API;
   render() {
     return (
-      <div>
-        <div className="container">
-          <div className="head-text">
-            <h1>
-              <span>News App</span>
-              <img src={logo} alt="logo" className='logo' />
-            </h1>
-            <div className="container mt-5 d-flex align-items-center justify-content-center">
-              <div className="input shadow">
-                <input type="text" onChange={this.handleChange} className=' px-3' placeholder='Enter keyword of news...' />
-                <button disabled={this.state.searchTerm.trim() === '' ? true : false} className='searchbtn' onClick={this.handleSearch} style={this.state.searchTerm.trim() === '' ? {cursor: "not-allowed"} : {backgroundColor : "#687EFF"}}>Search <i className="bi bi-arrow-right-short"></i></button>
-              </div>
-            </div>
-            {/* Here the news */}
-            <div className="mt-5">
-              {console.log(this.state.searchFlag)}
-              {this.state.searchFlag ? <News searchTerm={this.state.searchTerm} /> : <h2 className='initial-text text-center py-5 fs-1'>Search for news articles by entering a keyword</h2>}
-            </div>
-          </div>
-        </div>
-      </div>
+      <BrowserRouter>
+        <Navbar fs="1.5em" />  
+        <Routes>
+          <Route path='/NewsApp/' element={<Home apiKey={this.apiKey} category={null} />}/>
+          <Route path='/NewsApp/business' element={<Home apiKey={this.apiKey} category="business"/>}/>
+          <Route path='/NewsApp/entertainment' element={<Home apiKey={this.apiKey} category="entertainment"/>}/>
+          <Route path='/NewsApp/general' element={<Home apiKey={this.apiKey} category="general"/>}/>
+          <Route path='/NewsApp/health' element={<Home apiKey={this.apiKey} category="health"/>}/>
+          <Route path='/NewsApp/science' element={<Home apiKey={this.apiKey} category="science"/>}/>
+          <Route path='/NewsApp/sports' element={<Home apiKey={this.apiKey} category="sports"/>}/>
+          <Route path='/NewsApp/technology' element={<Home apiKey={this.apiKey} category="technology"/>}/>
+        </Routes>
+      </BrowserRouter>
     )
   }
 }

@@ -4,9 +4,8 @@
 }
 .logo{
   width: 80px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed;
+  top: 10px;
   right: 10px;
   border-radius: 10px;
   transition: width 0.5s ease;
@@ -161,4 +160,24 @@
   50.1%{z-index: 3; transform: translateX(0);}
   75%  {z-index: 3; transform: translateX(-80px);}
   100% {z-index: 3; transform: translateX(0);}
+}
+
+/* Navbar */
+.navbar .active{
+  border: none;
+  outline: none;
+  background: linear-gradient(45deg,
+  rgba(2,0,36,1) 0%,
+  rgba(9,9,121,1) 35%,
+  rgba(0,212,255,1) 100%);;
+  transition: background-color .5s ease;
+  padding: 5px 30px 5px 20px;
+  border-radius: 10px;
+  color: white!important;
+}
+.navbar .nav-item{
+  text-transform: capitalize;
+}
+.navbar .nav-link{
+  padding-left: 20px;
 }
