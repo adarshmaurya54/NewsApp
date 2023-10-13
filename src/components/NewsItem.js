@@ -22,7 +22,7 @@ export class NewsItem extends Component {
                             <p className="card-text">{content}</p>
                             <a className='btn btn-sm read' href={newsUrl}>Read more <i className="bi bi-arrow-right-short"></i></a>
                             <div className="card-text d-md-flex mt-2 justify-content-between">
-                                <div><small className="text-body-secondary">Author <strong>{author}</strong></small></div>
+                                <div><small className="text-body-secondary"><strong>{author}</strong></small></div>
                                 <div><small className="text-body-secondary">Published at {formatPublishedAt}</small></div>
                             </div>
                         </div>

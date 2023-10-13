@@ -38,7 +38,8 @@ export class News extends Component {
             // this.setState({article: articles});
             // this.setState({searchTerm: category});
             // this.setState({ loading: false })
-            let response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${this.props.apiKey}`);
+            // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${this.props.apiKey}`);
+            let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=in&max=100&apikey=${this.props.apiKey}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -48,7 +49,8 @@ export class News extends Component {
 
         } else if (searchTerm.trim() !== '') {
             try {
-                let response = await fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${this.props.apiKey}`);
+                // let response = await fetch(`https://newsapi.org/v2/everything?q=&apiKey=${this.props.apiKey}`);
+                let response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&country=in&max=100&min=100&apikey=${this.props.apiKey}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -1369,7 +1371,7 @@ export class News extends Component {
     async componentDidUpdate(prevProps) {
         if (this.props.category !== prevProps.category){
             this.setState({ loading: true })
-            let response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.apiKey}`);
+            let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${this.props.category}&country=in&max=100&apikey=${this.props.apiKey}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -1389,30 +1391,15 @@ export class News extends Component {
                             return <NewsItem key={e.url}
                                 title={e.title}
                                 description={e.description}
-                                imgurl={(e.urlToImage) ? e.urlToImage : thumbnail}
+                                imgurl={(e.image) ? e.image : thumbnail}
                                 publishedAt={e.publishedAt}
-                                author={e.author ? e.author : "Unknow"}
+                                author={e.source.name ? e.source.name : "Unknow"}
                                 content={e.content}
                                 newsUrl={e.url}
                             />
                         })}
                     </div>
                 }
-                {/* <nav aria-label="Page navigation example">
-                    <ul className="pagination justify-content-center">
-                        <li className="page-item ">
-                            <a className="page-link shadow-none" href="/">Previous</a>
-                        </li>
-                        {range.map((index) => {
-                            return <li key={index} className="page-item ">
-                                <a className="page-link shadow-none" href="/">{index + 1}</a>
-                            </li>
-                        })}
-                        <li  className="page-item ">
-                            <a className="page-link shadow-none" href="/">Next</a>
-                        </li>
-                    </ul>
-                </nav> */}
             </>
         )
     }
