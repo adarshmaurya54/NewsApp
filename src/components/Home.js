@@ -33,7 +33,7 @@ export class Home extends Component {
                         <div className="container mt-5 d-flex align-items-center justify-content-center">
                             <div className="input shadow">
                                 <input type="text" onChange={this.handleChange} className=' px-3' placeholder='Enter keyword of news...' />
-                                <button disabled={this.state.searchTerm.trim() === '' ? true : false} className='searchbtn' onClick={this.handleSearch} style={this.state.searchTerm.trim() === '' ? { cursor: "not-allowed" } : { backgroundColor: "#687EFF" }}>Search <i className="bi bi-arrow-right-short"></i></button>
+                                <button disabled={this.state.searchTerm.trim() === '' ? true : false}  className='searchbtn' onClick={this.handleSearch} style={this.state.searchTerm.trim() === '' ? { cursor: "not-allowed" } : { backgroundColor: "#687EFF" }}>Search <i className="bi bi-arrow-right-short"></i></button>
                             </div>
                         </div>
                         {/* Here the news */}
