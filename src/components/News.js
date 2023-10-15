@@ -76,7 +76,6 @@ export class News extends Component {
         const timeDifference = now - timestamp;
 
         // Calculate time difference in various units
-        const millisecondsAgo = timeDifference;
         const secondsAgo = Math.floor(timeDifference / 1000);
         const minutesAgo = Math.floor(secondsAgo / 60);
         const hoursAgo = Math.floor(minutesAgo / 60);
