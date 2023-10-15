@@ -15,7 +15,7 @@ export class News extends Component {
         }
     }
     async componentDidMount() {
-        const { searchTerm, category} = this.props;
+        const { searchTerm, category } = this.props;
 
         if (category) {
             try {
@@ -32,7 +32,7 @@ export class News extends Component {
                 this.setState({ loading: false })
                 this.props.setProgress(100)
             } catch (error) {
-                console.error('Error:', error);
+                alert('Error:' + error);
             }
         } else if (searchTerm.trim() !== '') {
             try {
@@ -49,24 +49,28 @@ export class News extends Component {
                 this.setState({ loading: false })
                 this.props.setProgress(100)
             } catch (error) {
-                console.error('Error:', error);
+                alert('Error:' + error);
             }
         }
     }
     async componentDidUpdate(prevProps) {
         if (this.props.category !== prevProps.category) {
-            this.props.setProgress(10)
-            this.setState({ loading: true })
-            let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${this.props.category}&country=in&max=100&apikey=${this.props.apiKey}`);
-            this.props.setProgress(30)
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            try {
+                this.props.setProgress(10)
+                this.setState({ loading: true })
+                let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${this.props.category}&country=in&max=100&apikey=${this.props.apiKey}`);
+                this.props.setProgress(30)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                let data = await response.json();
+                this.props.setProgress(50)
+                this.setState({ article: data.articles })
+                this.setState({ loading: false })
+                this.props.setProgress(100)
+            } catch (error) {
+                alert('Error:' + error);
             }
-            let data = await response.json();
-            this.props.setProgress(50)
-            this.setState({ article: data.articles })
-            this.setState({ loading: false })
-            this.props.setProgress(100)
         }
     }
     timeSince = (timestamp) => {
