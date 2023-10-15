@@ -19,6 +19,7 @@ export default class App extends Component {
     return (
       <>
         <LoadingBar
+          height={3}
           color='#2381c7'
           progress={this.state.progress}
         />
