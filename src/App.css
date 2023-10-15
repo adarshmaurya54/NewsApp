@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;1000&display=swap');
+
 .App {
   text-align: center;
 }
-.logo{
+
+.logo {
   width: 80px;
   position: fixed;
   top: 10px;
@@ -10,6 +12,7 @@
   border-radius: 10px;
   transition: width 0.5s ease;
 }
+
 .head-text h1 {
   position: relative;
   background: linear-gradient(140deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 13%, rgba(0, 212, 255, 1) 100%);
@@ -21,10 +24,12 @@
   font-size: 5em;
   transition: font-size 0.5s ease;
 }
-.result{
+
+.result {
   font-size: 0.8em;
 }
-.initial-text{
+
+.initial-text {
   font-size: 5em;
   background: linear-gradient(140deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 13%, rgba(0, 212, 255, 1) 100%);
   -webkit-background-clip: text;
@@ -33,27 +38,32 @@
   font-weight: bold;
   font-family: 'Nunito', sans-serif;
 }
-.read{
+
+.read {
   padding: 5px;
   border: 1px solid #80B3FF;
   color: #80B3FF;
   position: relative;
   padding-right: 25px;
 }
-.read .bi-arrow-right-short{
+
+.read .bi-arrow-right-short {
   position: absolute;
   right: 10px;
   transition: right .5s ease;
 }
-.read:hover{
+
+.read:hover {
   background: #687EFF;
   border-color: #687EFF;
   color: white;
 }
-.read:hover .bi-arrow-right-short{
+
+.read:hover .bi-arrow-right-short {
   right: 7px;
 }
-.result strong{
+
+.result strong {
   font-size: 1.2em;
   background: linear-gradient(140deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 13%, rgba(0, 212, 255, 1) 100%);
   -webkit-background-clip: text;
@@ -61,22 +71,25 @@
   color: transparent;
   font-family: 'Nunito', sans-serif;
 }
-.input{
+
+.input {
   position: relative;
   width: 70%;
   border-radius: 10px;
   transition: width 0.5s ease;
 }
-.input input{
+
+.input input {
   border-radius: 10px;
   width: 100%;
   height: 50px;
   border: none;
   outline: none;
-  padding-right: 120px!important;
+  padding-right: 120px !important;
   overflow: hidden;
 }
-.input .searchbtn{
+
+.input .searchbtn {
   position: absolute;
   top: 50%;
   border: none;
@@ -89,12 +102,14 @@
   right: 10px;
   transform: translateY(-50%);
 }
-.searchbtn .bi-arrow-right-short{
+
+.searchbtn .bi-arrow-right-short {
   position: absolute;
   right: 10px;
   transition: right .5s ease;
 }
-.searchbtn:hover .bi-arrow-right-short{
+
+.searchbtn:hover .bi-arrow-right-short {
   right: 7px;
 }
 
@@ -104,80 +119,177 @@
     padding: 10px 0;
     font-size: 3.5em;
   }
-  .input{
+
+  .input {
     width: 100%;
   }
-  .logo{
+
+  .logo {
     width: 50px;
   }
 }
+
 @media screen and (max-width: 344px) {
   .head-text h1 {
     font-size: 2.5em;
   }
-  .logo{
+
+  .logo {
     width: 40px;
   }
 }
+
 /* Loader code */
 .container1 {
   display: flex;
   justify-content: space-between;
   width: 250px;
+
   .circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background: linear-gradient(45deg,
-      rgba(2,0,36,1) 0%,
-      rgba(9,9,121,1) 35%,
-      rgba(0,212,255,1) 100%);
-    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.3);
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 9, 121, 1) 35%,
+        rgba(0, 212, 255, 1) 100%);
+    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.3);
     transform: translateX(0);
     z-index: 2;
+
     &:nth-child(1) {
       animation: move-1 2s infinite;
     }
+
     &:nth-child(3) {
       animation: move-3 2s infinite;
     }
   }
 }
+
 @keyframes move-1 {
-  0%   {z-index: 3; transform: translateX(0);}
-  25%  {z-index: 3; transform: translateX(80px);}
-  50%  {z-index: 3; transform: translateX(0);}
-  
-  50.1%{z-index: 1; transform: translateX(0);}
-  75%  {z-index: 1; transform: translateX(80px);}
-  100% {z-index: 1; transform: translateX(0);}
+  0% {
+    z-index: 3;
+    transform: translateX(0);
+  }
+
+  25% {
+    z-index: 3;
+    transform: translateX(80px);
+  }
+
+  50% {
+    z-index: 3;
+    transform: translateX(0);
+  }
+
+  50.1% {
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  75% {
+    z-index: 1;
+    transform: translateX(80px);
+  }
+
+  100% {
+    z-index: 1;
+    transform: translateX(0);
+  }
 }
+
 @keyframes move-3 {
-  0%   {z-index: 1; transform: translateX(0);}
-  25%  {z-index: 1; transform: translateX(-80px);}
-  50%  {z-index: 1; transform: translateX(0);}
-  
-  50.1%{z-index: 3; transform: translateX(0);}
-  75%  {z-index: 3; transform: translateX(-80px);}
-  100% {z-index: 3; transform: translateX(0);}
+  0% {
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  25% {
+    z-index: 1;
+    transform: translateX(-80px);
+  }
+
+  50% {
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  50.1% {
+    z-index: 3;
+    transform: translateX(0);
+  }
+
+  75% {
+    z-index: 3;
+    transform: translateX(-80px);
+  }
+
+  100% {
+    z-index: 3;
+    transform: translateX(0);
+  }
 }
 
 /* Navbar */
-.navbar .active{
-  border: none;
-  outline: none;
-  background: linear-gradient(45deg,
-  rgba(2,0,36,1) 0%,
-  rgba(9,9,121,1) 35%,
-  rgba(0,212,255,1) 100%);;
-  transition: background-color .5s ease;
-  padding: 5px 30px 5px 20px;
-  border-radius: 10px;
-  color: white!important;
+
+.gb {
+  font-family: 'Nunito', sans-serif;
+  padding: 10px 15px!important;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
 }
-.navbar .nav-item{
+.gb-bordered {
+  padding: 6px 20px;
+  position: relative;
+  border: 4px solid transparent;
+
+  background-clip: padding-box;
+  transition: .5s all;
+    
+  &:after {
+    transition: .5s all;
+    position: absolute;  
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    content: '';
+    z-index: -1;
+    border-radius: 4px;
+  } 
+}
+.hover-slide {
+  transition: .6s all;
+
+  &:after {
+    background-size: 200% 100%;
+    background-position: 0% 0;
+  }
+  &:hover {
+    &::after {
+      background-position: 100% 0;
+    }
+  }
+}
+.navbar .active{
+  z-index: 3;
+  background-color: transparent;
+  color: white!important;
+  &::after {
+    background-image: linear-gradient(135deg, rgb(13, 4, 178) 0%, rgb(13, 4, 178) 12.5%,rgb(17, 25, 182) 12.5%, rgb(17, 25, 182) 25%,rgb(20, 46, 185) 25%, rgb(20, 46, 185) 37.5%,rgb(24, 67, 189) 37.5%, rgb(24, 67, 189) 50%,rgb(28, 87, 192) 50%, rgb(28, 87, 192) 62.5%,rgb(32, 108, 196) 62.5%, rgb(32, 108, 196) 75%,rgb(35, 129, 199) 75%, rgb(35, 129, 199) 87.5%,rgb(39, 150, 203) 87.5%, rgb(39, 150, 203) 100%);
+  }
+}
+.navbar .nav-item {
   text-transform: capitalize;
 }
-.navbar .nav-link{
+
+.navbar .nav-link {
   padding-left: 20px;
+}
+@media screen and (max-width: 1060px) and (min-width: 992px){
+  .nav-link {
+    margin-left: unset!important;
+  }
 }
