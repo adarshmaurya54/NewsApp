@@ -39,9 +39,9 @@ export class Home extends Component {
                         {/* Here the news */}
                         <div className="mt-5">
                             {category && this.state.searchTerm.trim() === ''?
-                            <News apiKey={apiKey} category={category} searchTerm="" />
+                            <News apiKey={apiKey} setProgress={this.props.setProgress} category={category} searchTerm="" />
                             : 
-                            this.state.searchFlag ? <News apiKey={apiKey} category={null} searchTerm={this.state.searchTerm} /> : <h2 className='initial-text text-center py-5 fs-1'>Search for news articles by entering a keyword</h2>
+                            this.state.searchFlag ? <News apiKey={apiKey} setProgress={this.props.setProgress} category={null} searchTerm={this.state.searchTerm} /> : <h2 className='initial-text text-center py-5 fs-1'>Search for news articles by entering a keyword</h2>
                             }
                         </div>
                     </div>

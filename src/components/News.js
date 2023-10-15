@@ -15,28 +15,39 @@ export class News extends Component {
         }
     }
     async componentDidMount() {
-        const { searchTerm, category } = this.props;
+        const { searchTerm, category} = this.props;
 
         if (category) {
-            // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${this.props.apiKey}`);
-            let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=in&max=100&apikey=${this.props.apiKey}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            let data = await response.json();
-            this.setState({ article: data.articles })
-            this.setState({ loading: false })
-
-        } else if (searchTerm.trim() !== '') {
             try {
-                // let response = await fetch(`https://newsapi.org/v2/everything?q=&apiKey=${this.props.apiKey}`);
-                let response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&country=in&max=100&min=100&apikey=${this.props.apiKey}`);
+                this.props.setProgress(10)
+                // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${this.props.apiKey}`);
+                let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=in&max=100&apikey=${this.props.apiKey}`);
+                this.props.setProgress(30)
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 let data = await response.json();
+                this.props.setProgress(77)
                 this.setState({ article: data.articles })
                 this.setState({ loading: false })
+                this.props.setProgress(100)
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        } else if (searchTerm.trim() !== '') {
+            try {
+                this.props.setProgress(10)
+                // let response = await fetch(`https://newsapi.org/v2/everything?q=&apiKey=${this.props.apiKey}`);
+                let response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm.trim()}&country=in&max=100&min=100&apikey=${this.props.apiKey}`);
+                this.props.setProgress(30)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                let data = await response.json();
+                this.props.setProgress(66)
+                this.setState({ article: data.articles })
+                this.setState({ loading: false })
+                this.props.setProgress(100)
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -44,14 +55,18 @@ export class News extends Component {
     }
     async componentDidUpdate(prevProps) {
         if (this.props.category !== prevProps.category) {
+            this.props.setProgress(10)
             this.setState({ loading: true })
             let response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${this.props.category}&country=in&max=100&apikey=${this.props.apiKey}`);
+            this.props.setProgress(30)
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             let data = await response.json();
+            this.props.setProgress(50)
             this.setState({ article: data.articles })
             this.setState({ loading: false })
+            this.props.setProgress(100)
         }
     }
     timeSince = (timestamp) => {
