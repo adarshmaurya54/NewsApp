@@ -111,7 +111,6 @@ export class News extends Component {
                     <div className='mb-2'>
                         <h2 className='mb-3 result'>Results of <strong>{category ? category : searchTerm}</strong></h2>
                         {this.state.article.map((e) => {
-                            console.log(e.publishedAt);
                             return <NewsItem key={e.url}
                                 title={e.title}
                                 description={e.description}
