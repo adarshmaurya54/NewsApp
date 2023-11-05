@@ -16,6 +16,7 @@ export default class App extends Component {
     this.setState({progress: progress});
   }
   render() {
+    console.log(this.apiKey);
     return (
       <>
         <LoadingBar
