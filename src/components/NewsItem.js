@@ -4,10 +4,10 @@ export class NewsItem extends Component {
     render() {
         const {title, description, imgurl, publishedAt, author,newsUrl,content} = this.props;
         return (
-            <div className="card border-0 shadow mb-3 overflow-hidden">
+            <div className="card border-0 shadow-lg mb-3 overflow-hidden" style={{borderRadius: "20px"}}>
                 <div className="row g-0">
-                    <div className="col-md-4 d-flex align-items-center p-2">
-                        <img src={imgurl} className="img-fluid rounded" alt="..."/>
+                    <div className="col-md-4 d-flex align-items-center p-2 ">
+                        <img src={imgurl} className="img-fluid shadow" style={{borderRadius: "20px"}} alt="..."/>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
